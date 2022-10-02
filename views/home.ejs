@@ -7,13 +7,21 @@
      <title>Test</title>
 </head>
 <body>
-     <h1>Welcome to Kim's Blog!</h1>
-     <h2><%= todaysDate %> </h2>
-     <form action="/" method="post">
+     <h1>Welcome to Kim's Blog</h1>
+     <h2>Happy <%= todaysDate %>!</h2>
+     <form class="entry-form" action="/" method="post">
           <input type="text" placeholder="Title" name="title">
           <input type="text" placeholder="Description" name="description">
           <textarea name="content" id="content" placeholder="Content of you post" cols="30" rows="10"></textarea>
           <button type="submit">submit</button>
      </form>
+     
+     <% posts.forEach((post) => { %>
+          <h3><%= post.title %></h3>
+          <h4><%= post.description %></h4>
+          <p><%= (post.content).substring(0, 100) %> ...</p>
+     <% }) %> 
+     
+     
 </body>
 </html>
