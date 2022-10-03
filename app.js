@@ -1,9 +1,17 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-import getDay from "./date";
+import express from "express";
+import bodyParser from "body-parser";
+import ejs from "ejs";
+import getDay from "./date.js";
+
+
+//The below 3 lines are how to incorporate "__dirname" when you are using import modules vs. require()
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
-let post = {
+
+let entry = {
      title: "",
      description: "",
      content: ""
@@ -15,15 +23,17 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true}));
 
 app.get("/", (req, res) => {
-     
      res.render("home", {
-          todaysDate: getDay(),
+          todaysDate: getDay,
           posts: posts
      });
 });
 
-app.post("/", (req, res) => {
+app.get("/compose", (req, res) => {
+     res.render("compose");
+})
 
+app.post("/compose", (req, res) => {
      entry = {
           title: req.body.title,
           description: req.body.description,
