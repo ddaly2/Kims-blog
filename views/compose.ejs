@@ -5,14 +5,21 @@
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Compose</title>
+     
+     <!-- Bootstrap CDN -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
-     <%- include("header") %> 
-     <form class="entry-form" action="/compose" method="post">
-          <input type="text" placeholder="Title" name="title">
-          <input type="text" placeholder="Description" name="description">
-          <textarea name="content" id="content" placeholder="Content of you post" cols="30" rows="10"></textarea>
-          <button type="submit">submit</button>
+     <%- include("./partials/header") %> 
+     <form class="form-group m-4" action="/compose" method="post">
+          <label class="mb-2" for="title">Title</label>
+          <input class="form-control mb-4" type="text" placeholder="Title" name="title">
+          <label class="mb-2" for="description">Description</label>
+          <input class="form-control mb-4" type="text" placeholder="Description" name="description">
+          <label class="mb-2"for="content">Content</label>
+          <textarea class="form-control mb-4" name="content" id="content" placeholder="Content of you post" cols="30" rows="10"></textarea>
+          <button class="btn btn-primary" type="submit">submit</button>
      </form>
 </body>
+<%- include("./partials/footer") %> 
 </html>

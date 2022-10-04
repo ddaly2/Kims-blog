@@ -2,6 +2,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import ejs from "ejs";
 import getDay from "./date.js";
+import _ from "lodash";
+import mongoose from "mongoose";
 
 
 //The below 3 lines are how to incorporate "__dirname" when you are using import modules vs. require()
@@ -11,11 +13,12 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
-let entry = {
+let post = {
      title: "",
      description: "",
      content: ""
 };
+
 let posts = [];
 
 app.set("view engine", "ejs");
@@ -27,6 +30,7 @@ app.get("/", (req, res) => {
           todaysDate: getDay,
           posts: posts
      });
+
 });
 
 app.get("/compose", (req, res) => {
@@ -34,19 +38,31 @@ app.get("/compose", (req, res) => {
 })
 
 app.post("/compose", (req, res) => {
-     entry = {
+     post = {
           title: req.body.title,
           description: req.body.description,
           content: req.body.content
      }
 
-     posts.push(entry);
-     console.log(posts)
+     posts.push(post);
 
      res.redirect("/");
 })
 
+app.get("/about", (req, res) => {
+     res.render("about");
+})
 
+
+app.get("/contact", (req, res) => {
+     res.render("contact");
+})
+
+app.get("/article", (req, res) => {
+     res.render("article", {
+          posts: posts
+     });
+})
 
 
 
