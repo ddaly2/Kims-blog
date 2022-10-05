@@ -17,7 +17,7 @@
      <% posts.forEach((post) => { %>
           <h3><%= post.title %></h3>
           <h4><%= post.description %></h4>
-          <p><%= (post.content).substring(0, 100) %> ... <a href="#">Read more</a></p>
+          <p><%= (post.content).substring(0, 100) %> ... <a href="recipes/<%= post.title %>">Read more</a></p>
      <% }) %> 
      
      

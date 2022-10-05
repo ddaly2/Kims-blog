@@ -58,10 +58,22 @@ app.get("/contact", (req, res) => {
      res.render("contact");
 })
 
-app.get("/article", (req, res) => {
-     res.render("article", {
-          posts: posts
-     });
+app.get("/recipes/:food", (req, res) => {
+     const requestedTitle = _.lowerCase(req.params.food);
+
+     posts.forEach(post => {
+          const storedTitle = _.lowerCase(post.title);
+          if(_.lowerCase(post.title) === requestedTitle){
+               res.render("recipes", {
+                    title: post.title, 
+                    description: post.description,
+                    content: post.content
+               });
+               console.log("Match")
+          } 
+     })
+     res.send("<h1>There are no recipes that match your search</h1>");
+     
 })
 
 
