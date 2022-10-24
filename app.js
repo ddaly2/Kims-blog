@@ -1,9 +1,12 @@
+//jshint esversion:6
+
 import express from "express";
 import bodyParser from "body-parser";
 import ejs from "ejs";
 import getDay from "./date.js";
 import _ from "lodash";
 import mongoose from "mongoose";
+
 
 
 //The below 3 lines are how to incorporate "__dirname" when you are using import modules vs. require()
@@ -13,6 +16,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
+app.set("view engine", "ejs");
+app.use("/public", express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true}));
+
 let post = {
      title: "",
      description: "",
@@ -21,9 +28,6 @@ let post = {
 
 let posts = [];
 
-app.set("view engine", "ejs");
-
-app.use(bodyParser.urlencoded({ extended: true}));
 
 app.get("/", (req, res) => {
      res.render("home", {

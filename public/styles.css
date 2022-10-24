@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@100&family=Marck+Script&family=Montserrat&display=swap');
+
+html {
+     height: 100%;
+}
+
+body {
+     background-color: #FFADAD;
+     position: relative;
+     font-family: 'Montserrat', sans-serif;
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+     box-sizing: border-box;
+}
+
+.nav-bar {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     align-items: center;
+     background-color: #d05656;
+}
+
+.nav-logo {
+     color: #FFFEB7;
+     display: grid;
+     grid-template-columns: 1fr 3fr;
+     padding: 1rem;
+     align-items: center;
+}
+
+.nav-logo-svg {
+     height: 4rem;
+     width: auto;
+}
+
+.nav-logo-text {
+     font-family: 'Marck Script', cursive;
+     margin: 0;
+}
+
+.nav-bar-links {
+     font-family: 'IBM Plex Serif', serif;
+     font-size: 1.3rem;
+     padding: 1rem;
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 1rem;
+}
+
+.link {
+     color: white;
+     text-decoration: none;
+}
+
+.home-header {
+     margin: 3rem auto 3rem auto;
+     text-align: center;
+     color: #374B73;
+     display: flex;
+     flex-direction: column;
+}
+
+.posts-container {
+     display: flex;
+     flex-direction: column;
+     gap: 2rem;
+     width: 50%;
+     margin: auto auto 2rem auto;
+     padding: 2rem;
+}
+
+.post-link {
+     text-decoration: none;
+     background-color: white;
+     padding: 2rem;
+     border: 2px solid #d05656;
+}
+
+.post-title {
+     color: #d05656;
+     text-decoration: underline;
+}
+
+.post-description {
+     color: black;
+} 
+
+.post-preview {
+     color: black;
+}
+
+.footer {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     background-color: #d05656;
+     text-align: center;
+     width: 100%;
+}
+
+#footer-text {
+     margin: 0;
+     padding: 1rem;
+}
+
+@media screen and (max-width: 700px) {
+     .nav-bar-links {
+          display: flex;
+          flex-direction: column;
+          text-align: right;
+          font-size: 1rem;
+     }
+
+     .nav-logo {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          align-items: flex-start;
+     }
+
+     .nav-logo-svg {
+          height: 3rem;
+          width: auto;
+     }
+}

@@ -8,17 +8,30 @@
 
      <!-- Bootstrap CDN -->
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+     <script src="https://kit.fontawesome.com/34601af230.js" crossorigin="anonymous"></script>
+
+     <!-- CSS Link -->
+     <link rel="stylesheet" href="/public/styles.css" type="text/css">
+
 </head>
 <body>
      <%- include("./partials/header") %> 
-     <h1>Welcome to Kim's Blog</h1>
-     <h2>Happy <%= todaysDate %>!</h2>
+     <div class="home-header">
+          <h1>Welcome to Kim's Blog</h1>
+          <h2>Happy <%= todaysDate %>!</h2>
+     </div>
      
-     <% posts.forEach((post) => { %>
-          <h3><%= post.title %></h3>
-          <h4><%= post.description %></h4>
-          <p><%= (post.content).substring(0, 100) %> ... <a href="recipes/<%= post.title %>">Read more</a></p>
-     <% }) %> 
+     <div class="posts-container">
+          <% posts.forEach((post) => { %>
+               <a href="recipes/<%= post.title %>" class="post-link">
+                    <h3 class="post-title"><%= post.title %></h3>
+                    <h4 class="post-description"><%= post.description %></h4>
+                    <p class="post-preview"><%= (post.content).substring(0, 100) %> ...</p>
+               </a>
+          <% }) %> 
+     </div>
+    
      
      
 </body>
